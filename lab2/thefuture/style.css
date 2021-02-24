@@ -1,0 +1,36 @@
+:root {
+    --red: #f83259;
+    --blue: #63f6f3;
+    --yellow: #ffff04;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+.container {
+    display: grid;
+    gap: 1em    ;
+}
+
+.card {
+    font-weight: bold;
+    font-size: 1.25em;
+    padding: 2em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.homework {
+    background-color: var(--red);
+}
+
+.broken {
+    background-color: var(--blue);
+}
+
+.cloud {
+    background-color: var(--yellow);
+}
+
