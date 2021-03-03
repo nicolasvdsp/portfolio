@@ -100,3 +100,70 @@ h1 {
     grid-column: 1 / 4;
     grid-row: 3 / 4;
 }
+
+@media screen and (max-width: 910px){
+
+    .container {
+        height: 600px;
+        width: 300px;
+    }
+
+    .ticket {
+        height: 550px;
+        width: 300px;
+        grid-template-columns: 50% 50%;
+        grid-template-rows: 16% 70% 12% 12%;
+    }
+
+    .weareimd {
+        grid-column: 1 / 3;
+        grid-row: 1 / 2;
+        flex-direction: column-reverse;
+    }
+
+    .weareimd {
+        background-color: black;
+    }    
+    
+    h1 {
+        color: white;
+        padding-bottom: 0px;
+        font-size: 1.75em;
+    }
+    h4 {
+        color: white;
+        font-size: 0.75em;
+        letter-spacing: 4px;
+        padding-top: 5px;
+    }
+    
+    .date {
+        grid-column: 1 / 2;
+        grid-row: 3 / 4;
+    }
+    
+    .admit {
+        grid-column: 2 / 3;
+        grid-row: 3 / 4;
+    }
+    
+    .price {
+        grid-column: 1 / 3;
+        grid-row: 4 / 5;
+    }
+    
+    .qr {
+        grid-column: 1 / 3;
+        grid-row: 2 / 3;
+    }
+    
+    .included {
+        display: none;
+    }
+
+    .date, .admit, .price {
+        letter-spacing: 4px;
+        font-size: 1em;
+    }
+    
+}
