@@ -1,35 +1,63 @@
+@font-face{
+    font-family: unb_regular;
+    src: url(./res/UnB_Pro/UnB\ Pro_Regular.otf);
+}
+
+@font-face{
+    font-family: unb_bold;
+    src: url(./res/UnB_Pro/UnB\ Pro_Bold.otf);
+}
+
 * {
     box-sizing: border-box;
     padding: 0;
     margin: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+h4 {
+    font-weight: normal;
+}
+
+h1 {
+    padding-top: 0px;
+    padding-bottom: 40px;
+}
+
+.date, .admit, .price, h1 {
+    letter-spacing: 8px;
 }
 
 .container {
     position: absolute;
-    width: 800px;
-    height: 400px;
+    width: 920px;
+    height: 320px;
     left: 50%;
     top: 50%;
     transform: translate(-50%, -50%);
-    background-image: url(./bg.jpg);
+    background-image: url(./res/bg.jpg);
     background-color: rgba(200, 200, 200, 0.9);
     background-size: cover;
-}
-
-.center {
     display: flex;
     align-items: center;
     justify-content: center;
 }
 
 .ticket {
-    width: 100%;
-    height: 100£;
-
+    height: 300px;
+    width: 900px;
     display: grid;
-    grid-template-columns: 20% 20% 20% 1fr;
-    grid-template-rows: 33% 33% 33%;
+    grid-template-columns: 22% 22% 22% 1fr;
+    grid-template-rows: 65% 22% 13%;
 }
+
+.center {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid black;
+}
+
     
 
 .qr img {
@@ -39,6 +67,13 @@
 .weareimd {
     grid-column: 1 / 4;
     grid-row: 1 / 3;
+    display: flex;
+    flex-direction: column;
+}
+
+
+h1 {
+    font-size: 5em;
 }
 
 .date {
@@ -59,4 +94,9 @@
 .qr {
     grid-column: 4 / 5;
     grid-row: 1 / 4;
+}
+
+.included {
+    grid-column: 1 / 4;
+    grid-row: 3 / 4;
 }
