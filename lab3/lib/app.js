@@ -62,8 +62,7 @@ var App = /*#__PURE__*/function () {
     this.txtTodo = document.querySelector("#taskInput");
     this.txtTodo.addEventListener("keypress", this.createNote.bind(this)); // read up on .bind() -> we need to pass the current meaning of this to the eventListener
     // when the app loads, we can show previously saved noted from localstorage
-
-    this.loadNotesFromStorage();
+    // this.loadNotesFromStorage();
   }
 
   _createClass(App, [{
@@ -89,7 +88,9 @@ var App = /*#__PURE__*/function () {
     }
   }, {
     key: "reset",
-    value: function reset() {// this function should reset the form / clear the text field
+    value: function reset() {
+      // this function should reset the form / clear the text field
+      this.txtTodo.value = "";
     }
   }]);
 

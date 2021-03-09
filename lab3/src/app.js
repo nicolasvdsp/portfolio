@@ -49,7 +49,7 @@ class Note {
       this.txtTodo.addEventListener("keypress", this.createNote.bind(this));
       // read up on .bind() -> we need to pass the current meaning of this to the eventListener
       // when the app loads, we can show previously saved noted from localstorage
-      this.loadNotesFromStorage();
+      // this.loadNotesFromStorage();
     }
   
     loadNotesFromStorage() {
@@ -75,6 +75,7 @@ class Note {
   
     reset() {
       // this function should reset the form / clear the text field
+      this.txtTodo.value = "";
     }
   }
   
