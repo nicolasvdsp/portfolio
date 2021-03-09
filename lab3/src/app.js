@@ -36,12 +36,20 @@ class Note {
       console.log("👊🏼 The Constructor!");
   
       // HINT🤩
+        /*let input = document.getElementById("taskInput");
+        input.addEventListener("keypress", (event) => {
+            if (event.key === "Enter") {
+                event.preventDefault();
+                console.log("kaasjes");
+                this.createNote();
+            }
+        })*/
       // pressing the enter key in the text field triggers the createNote function
-      // this.txtTodo = ???
-      // this.txtTodo.addEventListener("keypress", this.createNote.bind(this));
+      this.txtTodo = document.querySelector("#taskInput");
+      this.txtTodo.addEventListener("keypress", this.createNote.bind(this));
       // read up on .bind() -> we need to pass the current meaning of this to the eventListener
       // when the app loads, we can show previously saved noted from localstorage
-      // this.loadNotesFromStorage();
+      this.loadNotesFromStorage();
     }
   
     loadNotesFromStorage() {
@@ -50,10 +58,17 @@ class Note {
     }
   
     createNote(e) {
+        if(e.key === "Enter") {
+            console.log("add note");
+            e.preventDefault();
+            console.log(this.txtTodo.value);
+            this.reset();
+        }
+
       // this function should create a new note by using the Note() class
       // HINT🤩
-      // note.add();
-      // note.saveToStorage();
+    //   note.add();
+    //   note.saveToStorage();
       // clear the text field with .reset in this class
       // if (e.key === "Enter")
     }
