@@ -8,21 +8,27 @@ class Note {
     createElement(title) {
       let newNote = document.createElement("li");
   
-      // HINT🤩 newNote.addEventListener('click', this.remove.bind(newNote));
+      newNote.addEventListener('click', this.remove.bind(newNote));
   
       return newNote;
     }
   
-    add(note) {
+    add() {
 
-      console.log(`${note} was added`);
       // HINT🤩
       // this function should append the note to the screen somehow
+
+      let taskList = document.querySelector("#taskList");
+      let node = document.createTextNode(this.title);
+
+      let newNote = document.createElement("li");
+
+      taskList.appendChild(newNote);
+      newNote.appendChild(node);
     }
   
-    saveToStorage(note) {
+    saveToStorage() {
 
-      console.log(`${note} saved to storage`);
       // HINT🤩
       // localStorage only supports strings, not arrays
       // if you want to store arrays, look at JSON.parse and JSON.stringify
