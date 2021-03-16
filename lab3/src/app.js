@@ -1,7 +1,8 @@
 class Note {
     constructor(title) {
       this.title = title;
-      // HINT🤩 this.element = this.createElement(title);
+      
+      this.element = this.createElement(title);
     }
   
     createElement(title) {
@@ -12,12 +13,16 @@ class Note {
       return newNote;
     }
   
-    add() {
+    add(note) {
+
+      console.log(`${note} was added`);
       // HINT🤩
       // this function should append the note to the screen somehow
     }
   
-    saveToStorage() {
+    saveToStorage(note) {
+
+      console.log(`${note} saved to storage`);
       // HINT🤩
       // localStorage only supports strings, not arrays
       // if you want to store arrays, look at JSON.parse and JSON.stringify
@@ -57,8 +62,8 @@ class Note {
             let note = new Note(this.txtTodo.value);
             
             this.reset();
-            note.add();
-            note.saveToStorage();
+            note.add(this.txtTodo.value);
+            note.saveToStorage(this.txtTodo.value);
         }
     }
   
