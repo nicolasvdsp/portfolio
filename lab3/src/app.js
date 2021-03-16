@@ -29,6 +29,17 @@ class Note {
   
     saveToStorage() {
 
+      if(localStorage.getItem("notes") === null) {
+        let arrayNotes = [];
+        arrayNotes.push(this.title);
+        localStorage.setItem("notes", JSON.stringify(arrayNotes));
+      } else {
+        let arrayNotes = JSON.parse(localStorage.getItem("notes"));
+        arrayNotes.push(this.title);
+        let jsonNotes = JSON.stringify(arrayNotes);
+        localStorage.setItem("notes", jsonNotes);
+      }
+
       // HINT🤩
       // localStorage only supports strings, not arrays
       // if you want to store arrays, look at JSON.parse and JSON.stringify
@@ -68,8 +79,8 @@ class Note {
             let note = new Note(this.txtTodo.value);
             
             this.reset();
-            note.add(this.txtTodo.value);
-            note.saveToStorage(this.txtTodo.value);
+            note.add();
+            note.saveToStorage();
         }
     }
   
