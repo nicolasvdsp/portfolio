@@ -36,14 +36,6 @@ class Note {
       console.log("👊🏼 The Constructor!");
   
       // HINT🤩
-        /*let input = document.getElementById("taskInput");
-        input.addEventListener("keypress", (event) => {
-            if (event.key === "Enter") {
-                event.preventDefault();
-                console.log("kaasjes");
-                this.createNote();
-            }
-        })*/
       // pressing the enter key in the text field triggers the createNote function
       this.txtTodo = document.querySelector("#taskInput");
       this.txtTodo.addEventListener("keypress", this.createNote.bind(this));
@@ -59,22 +51,18 @@ class Note {
   
     createNote(e) {
         if(e.key === "Enter") {
-            console.log("add note");
             e.preventDefault();
             console.log(this.txtTodo.value);
+            
+            let note = new Note(this.txtTodo.value);
+            
             this.reset();
+            note.add();
+            note.saveToStorage();
         }
-
-      // this function should create a new note by using the Note() class
-      // HINT🤩
-    //   note.add();
-    //   note.saveToStorage();
-      // clear the text field with .reset in this class
-      // if (e.key === "Enter")
     }
   
     reset() {
-      // this function should reset the form / clear the text field
       this.txtTodo.value = "";
     }
   }
