@@ -5,23 +5,20 @@ class Note {
       this.element = this.createElement(title);
     }
   
-    createElement(title) {
+    createElement() {
       let newNote = document.createElement("li");
   
-      newNote.addEventListener('click', this.remove.bind(newNote));
+      newNote.addEventListener("click", this.remove.bind(newNote));
   
       return newNote;
     }
   
-    add() {
-
-      // HINT🤩
-      // this function should append the note to the screen somehow
+    add(title) {
 
       let taskList = document.querySelector("#taskList");
-      let node = document.createTextNode(this.title);
+      let node = document.createTextNode(title);
 
-      let newNote = document.createElement("li");
+      let newNote = this.element;
 
       taskList.appendChild(newNote);
       newNote.appendChild(node);
@@ -40,9 +37,6 @@ class Note {
         localStorage.setItem("notes", jsonNotes);
       }
 
-      // HINT🤩
-      // localStorage only supports strings, not arrays
-      // if you want to store arrays, look at JSON.parse and JSON.stringify
     }
   
     remove() {
@@ -50,6 +44,17 @@ class Note {
       // in this function, 'this' will refer to the current note element
       // .removeChild(this)
       // remove the item from screen and from localstorage
+
+      let taskList = document.querySelector("#taskList");
+      taskList.removeChild(this);
+
+      let arrayNotes = JSON.parse(localStorage.getItem("notes"));
+      let title = this.innerHTML;
+      let indexTitle = arrayNotes.indexOf(title);
+      arrayNotes.splice(indexTitle, 1);
+
+      let jsonNotes = JSON.stringify(arrayNotes);
+      localStorage.setItem("notes", jsonNotes);
     }
   }
   
@@ -65,14 +70,13 @@ class Note {
     }
   
     loadNotesFromStorage() {
-      let arrayNotes = JSON.parse(localStorage.getItem("notes"));
-
-      for (let i=0; i<arrayNotes.length; i++) {
-        let newNote = document.createElement("li");
-        let taskList = document.querySelector("#taskList");
-        let node = document.createTextNode(arrayNotes[i]);
-        taskList.appendChild(newNote);
-        newNote.appendChild(node);
+      
+      if(localStorage.getItem("notes") != null) {
+        let arrayNotes = JSON.parse(localStorage.getItem("notes"));
+        for(let i = 0; i<arrayNotes.length; i++) {
+          let newNote = new Note(arrayNotes[i]);
+          newNote.add(newNote.title);
+        }
       }
     }
   
@@ -84,7 +88,7 @@ class Note {
             let note = new Note(this.txtTodo.value);
             
             this.reset();
-            note.add();
+            note.add(note.title);
             note.saveToStorage();
         }
     }
